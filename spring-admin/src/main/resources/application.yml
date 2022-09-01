@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    discovery:
+      client:
+        simple:
+#          instances:
+#            test:
+#              - uri: http://localhost:8085
+#                metadata:
+#                  management.context-path: /actuator
+server:
+  port: 9091

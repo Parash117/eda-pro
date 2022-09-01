@@ -1,0 +1,34 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: bill-ms
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+      discovery:
+        enabled: true
+
+#endpoints:
+#  restart:
+#    enabled: true
+
+logging:
+  level:
+    org.apache.zookeeper.ClientCnxn: WARN
+    org.springframework.web: INFO
+    org.hibernate: ERROR
+  file:
+    path: log
+    name: log/bms-spring.log
+
+management:
+  endpoint:
+    restart:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"

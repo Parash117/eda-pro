@@ -1,0 +1,70 @@
+server:
+  port: 8085
+spring:
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+      discovery:
+        enabled: true
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/eda_db
+#    username: postgres
+#    password: postgres
+#    driver-class-name: org.postgresql.Driver
+#    hikari:
+#      minimum-idle: 5
+#      maximum-pool-size: 2000
+#      connection-timeout: 30000
+#      idle-timeout: 600000
+#      max-lifetime: 1800
+#      leak-detection-threshold: 600000
+#      initialization-mode: always
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database: postgresql
+#    properties:
+#      hibernate:
+#        jdbc:
+#          lob:
+#            non_contextual_creation: true
+#      format_sql: true
+#  mvc:
+#    throw-exception-if-no-handler-found: true
+  #  boot:
+  #    admin:
+  #      client:
+  #        url: http://localhost:9090/
+  #        username: client
+  #        password: client
+  application:
+    name: product-ms
+#
+#endpoints:
+#  restart:
+#    enabled: true
+
+logging:
+  level:
+    org.apache.zookeeper.ClientCnxn: WARN
+    org.springframework.web: INFO
+    org.hibernate: ERROR
+  file:
+    path: log
+    name: log/pms-spring.log
+#
+management:
+  security:
+    enabled: false
+  endpoint:
+#    loggers:
+#      enabled: true
+    restart:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
